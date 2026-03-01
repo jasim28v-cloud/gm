@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <meta name="google-site-verification" content="googleb368e00790fb9a7e" />
+
     <title>XRAWS | PINK VELVET 2026</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -13,40 +16,178 @@
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Cairo:wght@400;700;900&display=swap');
-        :root { --pink-bright: #ff007f; --pink-glow: rgba(255, 0, 127, 0.4); --bg-pink: #fff0f5; }
         
-        body { margin: 0; background: var(--bg-pink); color: #333; font-family: 'Cairo', sans-serif; overflow-x: hidden; background-image: radial-gradient(circle at 50% 50%, #ffe4e1 0%, #fff0f5 100%); background-attachment: fixed; }
-
-        header { height: 80px; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); border-bottom: 2px solid var(--pink-bright); display: flex; align-items: center; justify-content: space-between; padding: 0 25px; position: fixed; top: 0; width: 100%; z-index: 1000; }
+        :root {
+            --pink-bright: #ff007f;
+            --pink-glow: rgba(255, 0, 127, 0.4);
+            --bg-pink: #fff0f5;
+        }
         
-        .logo { font-family: 'Orbitron'; font-weight: 900; font-size: 28px; color: var(--pink-bright); text-shadow: 0 0 10px var(--pink-glow); cursor: pointer; }
+        body {
+            margin: 0;
+            background: var(--bg-pink);
+            color: #333;
+            font-family: 'Cairo', sans-serif;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at 50% 50%, #ffe4e1 0%, #fff0f5 100%);
+            background-attachment: fixed;
+        }
 
-        .feed { padding-top: 110px; display: flex; flex-direction: column; align-items: center; gap: 40px; padding-bottom: 120px; }
+        /* الهيدر */
+        header {
+            height: 80px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid var(--pink-bright);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 25px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
         
-        /* كارت الفيديو الوردي الزجاجي */
-        .v-card { width: 92%; max-width: 480px; border-radius: 40px; background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(15px); border: 1px solid rgba(255, 0, 127, 0.1); overflow: hidden; position: relative; transition: 0.4s; box-shadow: 0 15px 35px rgba(255, 0, 127, 0.1); }
-        .v-card:hover { transform: translateY(-5px); border-color: var(--pink-bright); box-shadow: 0 20px 45px rgba(255, 0, 127, 0.2); }
+        .logo {
+            font-family: 'Orbitron';
+            font-weight: 900;
+            font-size: 28px;
+            color: var(--pink-bright);
+            text-shadow: 0 0 10px var(--pink-glow);
+            cursor: pointer;
+        }
 
-        video { width: 100%; aspect-ratio: 9/16; object-fit: cover; background: #000; border-bottom: 1px solid rgba(255, 0, 127, 0.05); }
-
-        .action-overlay { position: absolute; left: 15px; bottom: 180px; display: flex; flex-direction: column; gap: 15px; z-index: 10; }
-        .pink-btn { width: 50px; height: 50px; background: rgba(255, 255, 255, 0.9); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--pink-bright); box-shadow: 0 5px 15px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; }
-        .pink-btn:hover { background: var(--pink-bright); color: #fff; transform: scale(1.1); }
-
-        /* نظام التعليقات الحقيقية */
-        .comment-section { padding: 20px; background: rgba(255, 255, 255, 0.4); }
-        .comment-list { max-height: 150px; overflow-y: auto; margin-bottom: 10px; padding-right: 5px; }
-        .comment-msg { background: #fff; padding: 8px 15px; border-radius: 18px; margin-bottom: 8px; font-size: 13px; color: #555; border-right: 4px solid var(--pink-bright); box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+        /* الحاوية الرئيسية */
+        .feed {
+            padding-top: 110px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            padding-bottom: 120px;
+        }
         
-        .comment-input-wrap { position: relative; display: flex; align-items: center; }
-        .c-input { width: 100%; background: #fff; border: 1.5px solid #ffc0cb; border-radius: 25px; padding: 12px 20px; color: #333; outline: none; transition: 0.3s; }
-        .c-input:focus { border-color: var(--pink-bright); box-shadow: 0 0 10px rgba(255, 0, 127, 0.1); }
+        /* كارت الفيديو */
+        .v-card {
+            width: 92%;
+            max-width: 480px;
+            border-radius: 40px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 0, 127, 0.1);
+            overflow: hidden;
+            position: relative;
+            transition: 0.4s;
+            box-shadow: 0 15px 35px rgba(255, 0, 127, 0.1);
+        }
 
-        .upload-btn-pink { position: fixed; bottom: 35px; left: 35px; width: 70px; height: 70px; background: var(--pink-bright); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; cursor: pointer; z-index: 2000; box-shadow: 0 10px 25px var(--pink-glow); transition: 0.3s; border: none; }
-        .upload-btn-pink:hover { transform: scale(1.1) rotate(15deg); }
+        video {
+            width: 100%;
+            aspect-ratio: 9/16;
+            object-fit: cover;
+            background: #000;
+        }
 
-        footer { padding: 50px 20px; text-align: center; border-top: 1px solid #ffc0cb; }
-        .p-date { font-family: 'Orbitron'; color: var(--pink-bright); font-size: 14px; letter-spacing: 5px; font-weight: 900; }
+        /* أزرار التفاعل الجانبية */
+        .action-overlay {
+            position: absolute;
+            left: 15px;
+            bottom: 180px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 10;
+        }
+
+        .pink-btn {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--pink-bright);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .pink-btn:hover {
+            transform: scale(1.1);
+            background: var(--pink-bright);
+            color: white;
+        }
+
+        /* قسم التعليقات */
+        .comment-section {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .comment-list {
+            max-height: 150px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+        }
+
+        .comment-msg {
+            background: #fff;
+            padding: 8px 15px;
+            border-radius: 18px;
+            margin-bottom: 8px;
+            font-size: 13px;
+            color: #555;
+            border-right: 4px solid var(--pink-bright);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+        
+        .c-input {
+            width: 100%;
+            background: #fff;
+            border: 1.5px solid #ffc0cb;
+            border-radius: 25px;
+            padding: 12px 20px;
+            color: #333;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        /* زر الرفع العائم */
+        .upload-btn-pink {
+            position: fixed;
+            bottom: 35px;
+            left: 35px;
+            width: 70px;
+            height: 70px;
+            background: var(--pink-bright);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            cursor: pointer;
+            z-index: 2000;
+            box-shadow: 0 10px 25px var(--pink-glow);
+            border: none;
+        }
+
+        footer {
+            padding: 50px 20px;
+            text-align: center;
+            border-top: 1px solid #ffc0cb;
+        }
+
+        .p-date {
+            font-family: 'Orbitron';
+            color: var(--pink-bright);
+            font-size: 14px;
+            letter-spacing: 5px;
+            font-weight: 900;
+        }
     </style>
 </head>
 <body>
@@ -74,21 +215,38 @@
             db: "https://soko-7d03e-default-rtdb.firebaseio.com/",
             cl: "dfscughol",
             pr: "update_vk",
-            ads: ["https://www.effectivegatecpm.com/bxwxuk2f39?key=566216691dc8b76a740840e94f68f44c", "https://www.effectivegatecpm.com/k60w64w4gk?key=564f3d8cc4ac85949f218179b742495e"]
+            ads: [
+                "https://www.effectivegatecpm.com/bxwxuk2f39?key=566216691dc8b76a740840e94f68f44c", 
+                "https://www.effectivegatecpm.com/k60w64w4gk?key=564f3d8cc4ac85949f218179b742495e"
+            ]
         };
 
         firebase.initializeApp({ databaseURL: CONFIG.db });
         const db = firebase.database();
         let adStep = 0;
 
-        function ad() { window.open(CONFIG.ads[adStep], '_blank'); adStep = (adStep + 1) % 2; }
+        function ad() { 
+            window.open(CONFIG.ads[adStep], '_blank'); 
+            adStep = (adStep + 1) % 2; 
+        }
 
-        const widget = cloudinary.createUploadWidget({ cloudName: CONFIG.cl, uploadPreset: CONFIG.pr, resourceType: 'video' }, (err, res) => {
-            if (res.event === "success") db.ref('x_pink_archive/').push({ url: res.info.secure_url, likes: 0, time: Date.now() });
+        const widget = cloudinary.createUploadWidget({ 
+            cloudName: CONFIG.cl, 
+            uploadPreset: CONFIG.pr, 
+            resourceType: 'video' 
+        }, (err, res) => {
+            if (res.event === "success") {
+                db.ref('x_pink_archive/').push({ 
+                    url: res.info.secure_url, 
+                    likes: 0, 
+                    time: Date.now() 
+                });
+            }
         });
 
         document.getElementById("upload-trigger").onclick = () => widget.open();
 
+        // جلب الفيديوهات وعرضها
         db.ref('x_pink_archive').on('value', (snap) => {
             const feed = document.getElementById('main-feed');
             const data = snap.val();
@@ -103,28 +261,40 @@
                     <video loop playsinline src="${item.url}" controls></video>
                     
                     <div class="action-overlay">
-                        <div class="pink-btn" onclick="like('${id}')"><i class="fas fa-heart"></i><span class="text-[10px] font-bold">${item.likes || 0}</span></div>
-                        <div class="pink-btn" onclick="ad(); window.open('${item.url}','_blank')"><i class="fas fa-download"></i></div>
-                        <div class="pink-btn" onclick="ad()"><i class="fas fa-share-alt"></i></div>
+                        <div class="pink-btn" onclick="like('${id}')">
+                            <i class="fas fa-heart"></i>
+                            <span class="text-[10px] font-bold">${item.likes || 0}</span>
+                        </div>
+                        <div class="pink-btn" onclick="ad(); window.open('${item.url}','_blank')">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <div class="pink-btn" onclick="ad()">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
                     </div>
 
                     <div class="comment-section">
                         <div class="comment-list" id="list-${id}"></div>
-                        <div class="comment-input-wrap">
-                            <input type="text" class="c-input" placeholder="اكتب تعليقاً وردياً..." onkeydown="if(event.key==='Enter') sendC('${id}', this.value); if(event.key==='Enter') this.value=''">
-                        </div>
-                    </div>`;
+                        <input type="text" class="c-input" placeholder="اكتب تعليقاً..." 
+                               onkeydown="if(event.key==='Enter') sendC('${id}', this.value); if(event.key==='Enter') this.value=''">
+                    </div>
+                `;
                 feed.appendChild(card);
                 loadC(id);
             });
         });
 
-        function sendC(id, txt) { if(!txt.trim()) return; ad(); db.ref(`x_pink_archive/${id}/comments`).push({ msg: txt, time: Date.now() }); }
+        function sendC(id, txt) { 
+            if(!txt.trim()) return; 
+            ad(); 
+            db.ref(`x_pink_archive/${id}/comments`).push({ msg: txt, time: Date.now() }); 
+        }
         
         function loadC(id) {
             db.ref(`x_pink_archive/${id}/comments`).on('value', snap => {
                 const container = document.getElementById(`list-${id}`);
-                const data = snap.val(); container.innerHTML = '';
+                const data = snap.val(); 
+                if(container) container.innerHTML = '';
                 if(data) {
                     Object.values(data).forEach(c => {
                         container.innerHTML += `<div class="comment-msg">${c.msg}</div>`;
@@ -134,14 +304,17 @@
             });
         }
 
-        function like(id) { ad(); db.ref(`x_pink_archive/${id}/likes`).transaction(l => (l || 0) + 1); }
+        function like(id) { 
+            ad(); 
+            db.ref(`x_pink_archive/${id}/likes`).transaction(l => (l || 0) + 1); 
+        }
 
-        // الإدارة بضغط مطول
+        // نظام الحذف (اضغط مطولاً على XRAWS)
         let hold;
         document.getElementById('adm-trigger').onmousedown = () => hold = setTimeout(() => {
             const pass = prompt("كلمة السر:");
             if(pass === "2026") {
-                const vid = prompt("ID الفيديو للحذف:");
+                const vid = prompt("ادخل ID الفيديو المراد حذفه:");
                 db.ref(`x_pink_archive/${vid}`).remove();
             }
         }, 3000);
