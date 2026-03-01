@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>XRAWS | PREMIUM GREEN ARCHIVE</title>
     
-    <title>XRAWS | الأرشيف العالمي الحصري</title>
-    <meta name="description" content="منصة XRAWS الرسمية للمحتوى الحصري والأرشفة الذكية 2026">
+    <meta name="description" content="XRAWS - المنصة الأضخم للمحتوى الخام بتصميم زجاجي نيون">
     <link rel="canonical" href="https://jasim28v-cloud.github.io/gx/">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -15,130 +15,148 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Cairo:wght@400;700;900&display=swap');
-        :root { --neon: #00ff88; --dark-bg: #020202; }
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Cairo:wght@400;700&display=swap');
+        :root { --neon: #00ff88; --glass: rgba(0, 255, 136, 0.05); }
+        body { margin: 0; background: #000; color: #fff; font-family: 'Cairo', sans-serif; overflow-x: hidden; }
         
-        body { margin: 0; background: var(--dark-bg); color: #fff; font-family: 'Cairo', sans-serif; overflow-x: hidden; }
-        
-        /* تأثير الزجاج الأخضر */
-        .glass-header {
-            height: 75px; background: rgba(0,0,0,0.9); backdrop-filter: blur(15px);
-            border-bottom: 2px solid rgba(0,255,136,0.3); position: fixed; top: 0; width: 100%; z-index: 1000;
-            display: flex; align-items: center; justify-content: space-between; padding: 0 25px;
+        header {
+            height: 75px; background: rgba(0,0,0,0.9); backdrop-filter: blur(20px);
+            border-bottom: 2px solid rgba(0,255,136,0.2); display: flex;
+            align-items: center; justify-content: space-between; padding: 0 20px;
+            position: fixed; top: 0; width: 100%; z-index: 1000;
         }
+        .logo { font-family: 'Orbitron'; font-weight: 900; font-size: 28px; color: var(--neon); text-shadow: 0 0 15px var(--neon); }
 
-        .main-logo { font-family: 'Orbitron'; font-weight: 900; font-size: 30px; color: var(--neon); text-shadow: 0 0 15px var(--neon); }
-
-        .content-feed { padding: 100px 10px 60px; display: flex; flex-direction: column; align-items: center; gap: 30px; }
-        
-        .video-wrapper {
-            width: 100%; max-width: 550px; background: #080808; border-radius: 30px;
-            border: 1px solid rgba(0,255,136,0.1); overflow: hidden; transition: 0.4s;
+        .feed { padding-top: 100px; display: flex; flex-direction: column; align-items: center; gap: 30px; padding-bottom: 50px; }
+        .v-card {
+            width: 95%; max-width: 500px; border-radius: 25px; border: 1px solid rgba(0,255,136,0.1);
+            background: #050505; overflow: hidden; position: relative;
         }
-        .video-wrapper:hover { border-color: var(--neon); transform: scale(1.02); }
+        video { width: 100%; display: block; border-bottom: 1px solid #111; min-height: 200px; }
 
-        video { width: 100%; display: block; background: #000; }
+        .action-bar { display: flex; justify-content: space-around; padding: 15px; background: rgba(0,0,0,0.5); }
+        .action-btn { cursor: pointer; transition: 0.3s; display: flex; flex-direction: column; align-items: center; gap: 5px; }
+        .action-btn:hover { color: var(--neon); transform: scale(1.1); }
 
-        /* زر الرفع "التيتان" المطور ضد الحظر */
-        #master-upload {
-            position: fixed; bottom: 35px; right: 35px; width: 70px; height: 70px;
+        .footer { background: #020202; border-top: 1px solid #111; padding: 50px 20px; text-align: center; }
+        .f-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 30px 0; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .f-links a { color: #555; font-size: 11px; text-decoration: none; }
+
+        .upload-btn {
+            position: fixed; bottom: 30px; left: 30px; width: 65px; height: 65px;
             background: var(--neon); color: #000; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            font-size: 28px; cursor: pointer; z-index: 2000;
-            box-shadow: 0 0 25px var(--neon); border: none;
+            font-size: 26px; cursor: pointer; z-index: 2000; box-shadow: 0 0 20px var(--neon);
         }
-
-        .footer-premium { background: #000; padding: 50px 20px; text-align: center; border-top: 1px solid #111; }
-        .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; max-width: 700px; margin: 30px auto; }
-        .footer-grid a { color: #555; font-size: 12px; transition: 0.3s; }
-        .footer-grid a:hover { color: var(--neon); }
-
-        /* شاشة التحميل الذكية */
-        #sys-loader { position: fixed; inset: 0; background: #000; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-        .spin { width: 50px; height: 50px; border: 3px solid #111; border-top-color: var(--neon); border-radius: 50%; animation: s 1s linear infinite; }
-        @keyframes s { to { transform: rotate(360deg); } }
+        #loader { position: fixed; inset: 0; background: #000; z-index: 9999; display: flex; align-items: center; justify-content: center; }
     </style>
 </head>
 <body>
 
-    <div id="sys-loader"><div class="spin"></div><p class="mt-4 text-[Orbitron] text-xs text-green-500">XRAWS SYSTEM BOOTING...</p></div>
+    <div id="loader"><i class="fas fa-spinner fa-spin text-green-500 text-4xl"></i></div>
 
-    <header class="glass-header">
-        <div class="main-logo italic">XRAWS</div>
-        <div class="flex gap-5 text-gray-500"><i class="fas fa-search" onclick="ad()"></i><i class="fas fa-bars" onclick="ad()"></i></div>
+    <header>
+        <div class="logo italic">XRAWS</div>
+        <i class="fas fa-search text-gray-500" onclick="triggerAd()"></i>
     </header>
 
-    <main class="content-feed" id="feed"></main>
+    <main class="feed" id="main-feed"></main>
 
-    <button id="master-upload"><i class="fas fa-plus"></i></button>
-
-    <footer class="footer-premium">
-        <div class="main-logo italic text-2xl mb-4">XRAWS</div>
-        <div class="footer-grid">
-            <a href="#" onclick="ad()">Terms</a> <a href="#" onclick="ad()">Privacy</a> <a href="#" onclick="ad()">DMCA</a>
-            <a href="#" onclick="ad()">Porn List</a> <a href="#" onclick="ad()">Homemade</a> <a href="#" onclick="ad()">Premium</a>
-            <a href="#" onclick="ad()">MrPornGeek</a> <a href="#" onclick="ad()">Anal Porn</a> <a href="#" onclick="ad()">Eporner</a>
+    <footer class="footer">
+        <span class="logo italic text-2xl mb-4 block">XRAWS</span>
+        <div class="f-links">
+            <a href="#" onclick="triggerAd()">Terms</a> <a href="#" onclick="triggerAd()">Privacy</a> <a href="#" onclick="triggerAd()">DMCA</a>
+            <a href="#" onclick="triggerAd()">Porn List</a> <a href="#" onclick="triggerAd()">Homemade</a> <a href="#" onclick="triggerAd()">Premium</a>
         </div>
-        <p class="text-gray-700 text-[10px] mt-8">© 2026 XRAWS.COM | ALL RIGHTS RESERVED</p>
+        <p class="text-gray-700 text-[10px] mt-4">© Xraws.com, 2026</p>
     </footer>
 
+    <div class="upload-btn" id="upload-action"><i class="fas fa-plus"></i></div>
+
     <script>
-        const CFG = {
-            db: "https://coco-88863-default-rtdb.firebaseio.com/",
-            cl: "dfscughol",
-            pr: "titan_goo",
+        const CONFIG = {
+            firebaseURL: "https://coco-88863-default-rtdb.firebaseio.com/",
+            cloudName: "dfscughol",
+            uploadPreset: "titan_goo",
             ads: [
                 "https://www.effectivegatecpm.com/bxwxuk2f39?key=566216691dc8b76a740840e94f68f44c",
                 "https://www.effectivegatecpm.com/k60w64w4gk?key=564f3d8cc4ac85949f218179b742495e"
             ]
         };
 
-        firebase.initializeApp({ databaseURL: CFG.db });
+        // تهيئة Firebase
+        if (!firebase.apps.length) {
+            firebase.initializeApp({ databaseURL: CONFIG.firebaseURL });
+        }
         const db = firebase.database();
-        let aI = 0;
+        let currentAdIdx = 0;
 
-        function ad() {
-            // فتح الإعلان بطريقة تمنع الحظر (كرد فعل مباشر)
-            const w = window.open(CFG.ads[aI], '_blank');
-            if(w) aI = (aI + 1) % CFG.ads.length;
+        function triggerAd() {
+            window.open(CONFIG.ads[currentAdIdx], '_blank');
+            currentAdIdx = (currentAdIdx + 1) % CONFIG.ads.length;
         }
 
-        const widget = cloudinary.createUploadWidget({
-            cloudName: CFG.cl, 
-            uploadPreset: CFG.pr,
-            resourceType: 'video',
-            clientAllowedFormats: ['mp4', 'mov', 'avi']
+        // إعداد الرفع
+        const widget = cloudinary.createUploadWidget({ 
+            cloudName: CONFIG.cloudName, 
+            uploadPreset: CONFIG.uploadPreset 
         }, (err, res) => {
             if (res.event === "success") {
-                db.ref('xraws_v3/').push({ url: res.info.secure_url, time: Date.now() });
-                ad();
+                db.ref('xraws_posts/').push({ url: res.info.secure_url, likes: 0, time: Date.now() });
+                triggerAd();
             }
         });
+        
+        document.getElementById("upload-action").onclick = () => { triggerAd(); widget.open(); };
 
-        // حل مشكلة الحظر: ربط الرفع بـ Event Listener حقيقي
-        document.getElementById("master-upload").addEventListener('click', function() {
-            ad(); // يفتح الإعلان أولاً
-            widget.open(); // يفتح النافذة المنبثقة للرفع
-        });
-
-        db.ref('xraws_v3').on('value', (snap) => {
-            const f = document.getElementById('feed');
+        // جلب البيانات مع معالجة الأخطاء
+        db.ref('xraws_posts').on('value', (snap) => {
+            const feed = document.getElementById('main-feed');
             const data = snap.val();
-            document.getElementById('sys-loader').style.display = 'none';
-            if(!data) { f.innerHTML = '<p class="mt-20 text-gray-600 italic">No Content Found</p>'; return; }
+            document.getElementById('loader').style.display = 'none';
             
-            f.innerHTML = '';
-            Object.values(data).reverse().forEach(v => {
-                f.innerHTML += `
-                    <div class="video-wrapper">
-                        <video controls playsinline preload="metadata" src="${v.url}" onplay="ad()"></video>
-                        <div class="p-4 flex justify-between items-center bg-black/50">
-                            <span class="text-[10px] text-green-500 font-bold">PREMIUM ARCHIVE</span>
-                            <i class="fas fa-share-alt text-gray-500" onclick="ad()"></i>
+            feed.innerHTML = '';
+            if(!data) {
+                feed.innerHTML = '<p class="mt-20 text-gray-600 italic">No Content Available</p>';
+                return;
+            }
+            
+            Object.keys(data).reverse().forEach(id => {
+                const item = data[id];
+                const card = document.createElement('div');
+                card.className = 'v-card';
+                card.innerHTML = `
+                    <video controls playsinline src="${item.url}" onplay="triggerAd()"></video>
+                    <div class="action-bar">
+                        <div class="action-btn" onclick="handleLike('${id}')">
+                            <i class="fas fa-heart text-red-500"></i>
+                            <span class="text-[10px] font-bold">${item.likes || 0}</span>
+                        </div>
+                        <div class="action-btn" onclick="triggerAd()">
+                            <i class="fas fa-comment text-green-500"></i>
+                            <span class="text-[10px] font-bold">CHAT</span>
+                        </div>
+                        <div class="action-btn" onclick="triggerAd()">
+                            <i class="fas fa-share text-blue-500"></i>
+                            <span class="text-[10px] font-bold">SHARE</span>
                         </div>
                     </div>`;
+                feed.appendChild(card);
             });
+        }, (error) => {
+            console.error("Firebase Error:", error);
+            document.getElementById('loader').style.display = 'none';
         });
+
+        function handleLike(id) {
+            triggerAd();
+            db.ref(`xraws_posts/${id}/likes`).transaction(l => (l || 0) + 1);
+        }
+
+        // تفعيل الصوت
+        document.addEventListener('click', () => { 
+            document.querySelectorAll('video').forEach(v => v.muted = false); 
+        }, {once: true});
     </script>
 </body>
 </html>
