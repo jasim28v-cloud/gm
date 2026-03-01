@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>XRAWS | EMERALD GLASS 2026</title>
+    <title>XRAWS | PUBLIC EMERALD ARCHIVE</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://upload-widget.cloudinary.com/global/all.js"></script>
@@ -13,115 +13,65 @@
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Cairo:wght@400;700;900&display=swap');
-        
-        :root {
-            --emerald: #00ff88;
-            --emerald-glow: rgba(0, 255, 136, 0.3);
-            --bg-deep: #000502;
-            --glass-card: rgba(255, 255, 255, 0.02);
-            --glass-border: rgba(0, 255, 136, 0.15);
-        }
-
-        body {
-            margin: 0; background: var(--bg-deep); color: #fff; font-family: 'Cairo', sans-serif;
-            background-image: radial-gradient(circle at 50% -20%, #002211 0%, transparent 50%);
-            background-attachment: fixed;
-        }
-
-        header {
-            height: 80px; background: rgba(0, 5, 2, 0.8); backdrop-filter: blur(25px);
-            border-bottom: 1px solid var(--glass-border); display: flex;
-            align-items: center; justify-content: space-between; padding: 0 25px;
-            position: fixed; top: 0; width: 100%; z-index: 1000;
-        }
-
-        .logo-emerald {
-            font-family: 'Orbitron'; font-weight: 900; font-size: 30px;
-            color: var(--emerald); text-shadow: 0 0 20px var(--emerald-glow);
-            cursor: pointer; letter-spacing: 2px;
-        }
-
-        .main-feed {
-            padding-top: 110px; display: flex; flex-direction: column;
-            align-items: center; gap: 35px; padding-bottom: 100px;
-        }
-
-        .v-card-glass {
-            width: 92%; max-width: 520px; border-radius: 30px;
-            background: var(--glass-card); backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border); overflow: hidden;
-            transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .v-card-glass:hover { border-color: var(--emerald); box-shadow: 0 0 30px rgba(0, 255, 136, 0.1); }
-
-        video { width: 100%; aspect-ratio: 16/9; object-fit: cover; background: #000; border-bottom: 1px solid var(--glass-border); }
-
-        .action-grid {
-            display: grid; grid-template-columns: repeat(4, 1fr);
-            padding: 18px; background: rgba(0, 255, 136, 0.02);
-        }
-
-        .action-item {
-            display: flex; flex-direction: column; align-items: center; gap: 6px;
-            cursor: pointer; transition: 0.3s; color: #777;
-        }
-
-        .action-item:hover { color: var(--emerald); transform: translateY(-3px); }
-        .action-item i { font-size: 20px; }
-        .action-item span { font-size: 9px; font-weight: 900; font-family: 'Orbitron'; }
-
-        .btn-upload-emerald {
-            position: fixed; bottom: 35px; left: 35px; width: 70px; height: 70px;
-            background: var(--emerald); color: #000; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 28px; cursor: pointer; z-index: 2000;
-            box-shadow: 0 0 30px var(--emerald-glow); transition: 0.3s;
-            border: none;
-        }
-        .btn-upload-emerald:hover { transform: scale(1.1) rotate(90deg); }
-
-        #emerald-loader {
-            position: fixed; inset: 0; background: var(--bg-deep); z-index: 9999;
-            display: flex; align-items: center; justify-content: center;
-        }
-
-        #admin-vault {
-            display: none; position: fixed; inset: 0; background: rgba(0,5,2,0.98);
-            z-index: 5000; padding: 50px; overflow-y: auto;
-        }
+        :root { --main-green: #00ff88; --glow: rgba(0, 255, 136, 0.4); --bg: #000804; }
+        body { margin: 0; background: var(--bg); color: #fff; font-family: 'Cairo', sans-serif; background-image: radial-gradient(circle at 50% 0%, #002211 0%, transparent 50%); background-attachment: fixed; }
+        header { height: 80px; background: rgba(0, 10, 5, 0.8); backdrop-filter: blur(20px); border-bottom: 2px solid rgba(0, 255, 136, 0.2); display: flex; align-items: center; justify-content: space-between; padding: 0 25px; position: fixed; top: 0; width: 100%; z-index: 1000; }
+        .logo { font-family: 'Orbitron'; font-weight: 900; font-size: 30px; color: var(--main-green); text-shadow: 0 0 15px var(--glow); cursor: pointer; }
+        .feed { padding-top: 110px; display: flex; flex-direction: column; align-items: center; gap: 40px; padding-bottom: 120px; }
+        .v-card { width: 95%; max-width: 550px; border-radius: 35px; background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(0, 255, 136, 0.1); overflow: hidden; transition: 0.4s ease; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+        .v-card:hover { border-color: var(--main-green); transform: translateY(-5px); box-shadow: 0 0 30px rgba(0, 255, 136, 0.15); }
+        video { width: 100%; aspect-ratio: 16/9; object-fit: cover; background: #000; }
+        .action-bar { display: grid; grid-template-columns: repeat(4, 1fr); padding: 15px; border-top: 1px solid rgba(255,255,255,0.05); }
+        .act-btn { cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 5px; color: #888; transition: 0.3s; }
+        .act-btn:hover { color: var(--main-green); }
+        .act-btn span { font-size: 10px; font-weight: bold; font-family: 'Orbitron'; }
+        .comment-section { background: rgba(0,0,0,0.2); padding: 15px; border-top: 1px solid rgba(255,255,255,0.05); }
+        .comment-list { max-height: 120px; overflow-y: auto; margin-bottom: 10px; font-size: 12px; }
+        .comment-item { background: rgba(0, 255, 136, 0.05); padding: 8px 12px; border-radius: 12px; margin-bottom: 6px; border-right: 3px solid var(--main-green); }
+        .comment-input { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(0, 255, 136, 0.2); border-radius: 15px; padding: 8px 15px; color: #fff; outline: none; font-size: 13px; }
+        .btn-upload { position: fixed; bottom: 35px; left: 35px; width: 70px; height: 70px; background: var(--main-green); color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; cursor: pointer; z-index: 2000; box-shadow: 0 0 25px var(--glow); transition: 0.3s; border: none; }
+        .btn-upload:hover { transform: scale(1.1); }
+        footer { padding: 40px; text-align: center; border-top: 1px solid rgba(0, 255, 136, 0.1); background: #000; }
+        .prod-date { font-family: 'Orbitron'; color: var(--main-green); font-size: 14px; letter-spacing: 3px; opacity: 0.7; }
+        #loader { position: fixed; inset: 0; background: var(--bg); z-index: 9999; display: flex; align-items: center; justify-content: center; }
+        #admin-panel { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 5000; padding: 40px; overflow-y: auto; }
     </style>
 </head>
 <body>
 
-    <div id="emerald-loader">
+    <div id="loader">
         <div class="text-center">
-            <div class="logo-emerald animate-pulse">XRAWS</div>
-            <div class="mt-3 text-emerald-500/50 text-[10px] tracking-[4px]">EMERALD ARCHIVE</div>
+            <div class="logo animate-pulse">XRAWS</div>
+            <div class="mt-4 text-[10px] tracking-[5px] text-green-500">ESTABLISHING CONNECTION...</div>
         </div>
     </div>
 
-    <div id="admin-vault">
-        <div class="flex justify-between items-center mb-10">
-            <h2 class="text-emerald-500 font-black text-2xl tracking-widest">CONTROL VAULT</h2>
-            <button onclick="closeVault()" class="text-white text-5xl">&times;</button>
+    <div id="admin-panel">
+        <div class="flex justify-between items-center mb-8 text-red-500 font-bold">
+            <h2>ADMIN DELETE PANEL</h2><button onclick="closeAdmin()" class="text-4xl">&times;</button>
         </div>
-        <div id="vault-items" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+        <div id="admin-list" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
     </div>
 
     <header>
-        <div class="logo-emerald italic" id="vault-trigger">XRAWS</div>
-        <i class="fas fa-search text-emerald-900 text-xl cursor-pointer" onclick="openAd()"></i>
+        <div class="logo italic" id="admin-trigger">XRAWS</div>
+        <i class="fas fa-search text-green-900 cursor-pointer" onclick="triggerAd()"></i>
     </header>
 
-    <main class="main-feed" id="content-feed"></main>
+    <main class="feed" id="main-feed"></main>
 
-    <button class="btn-upload-emerald" id="start-upload"><i class="fas fa-plus"></i></button>
+    <footer>
+        <div class="logo text-xl mb-4">XRAWS</div>
+        <div class="prod-date">PRODUCTION DATE: 2026</div>
+        <p class="text-gray-700 text-[10px] mt-2">© ALL RIGHTS RESERVED TO JASIM</p>
+    </footer>
+
+    <button class="btn-upload" id="upload-btn"><i class="fas fa-plus"></i></button>
 
     <script>
         const CONFIG = {
-            firebase: "https://soko-7d03e-default-rtdb.firebaseio.com/",
-            cloudName: "dfscughol",
+            db: "https://soko-7d03e-default-rtdb.firebaseio.com/",
+            cloud: "dfscughol",
             preset: "update_vk",
             ads: [
                 "https://www.effectivegatecpm.com/bxwxuk2f39?key=566216691dc8b76a740840e94f68f44c",
@@ -129,92 +79,93 @@
             ]
         };
 
-        firebase.initializeApp({ databaseURL: CONFIG.firebase });
+        firebase.initializeApp({ databaseURL: CONFIG.db });
         const db = firebase.database();
-        let adIndex = 0;
+        let adIdx = 0;
 
-        function openAd() {
-            window.open(CONFIG.ads[adIndex], '_blank');
-            adIndex = (adIndex + 1) % CONFIG.ads.length;
+        function triggerAd() {
+            window.open(CONFIG.ads[adIdx], '_blank');
+            adIdx = (adIdx + 1) % CONFIG.ads.length;
         }
 
-        // إعداد الرفع - مجاني تماماً كما طلبت
-        const uploader = cloudinary.createUploadWidget({
-            cloudName: CONFIG.cloudName, 
-            uploadPreset: CONFIG.preset,
-            resourceType: 'video'
+        const widget = cloudinary.createUploadWidget({
+            cloudName: CONFIG.cloud, uploadPreset: CONFIG.preset, resourceType: 'video'
         }, (err, res) => {
             if (res.event === "success") {
-                db.ref('emerald_archive/').push({
-                    url: res.info.secure_url,
-                    likes: 0,
-                    time: Date.now()
-                });
+                db.ref('xraws_public/').push({ url: res.info.secure_url, likes: 0, time: Date.now() });
             }
         });
 
-        document.getElementById("start-upload").onclick = () => uploader.open();
+        document.getElementById("upload-btn").onclick = () => widget.open();
 
-        db.ref('emerald_archive').on('value', (snap) => {
-            const feed = document.getElementById('content-feed');
-            const vault = document.getElementById('vault-items');
+        db.ref('xraws_public').on('value', (snap) => {
+            const feed = document.getElementById('main-feed');
+            const adminList = document.getElementById('admin-list');
             const data = snap.val();
-            
-            document.getElementById('emerald-loader').style.display = 'none';
-            feed.innerHTML = ''; vault.innerHTML = '';
+            document.getElementById('loader').style.display = 'none';
+            feed.innerHTML = ''; adminList.innerHTML = '';
 
             if(!data) {
-                feed.innerHTML = `<div class="opacity-10 text-center mt-40">
-                    <i class="fas fa-leaf text-6xl mb-4"></i>
-                    <p class="tracking-widest">NO ASSETS FOUND</p>
-                </div>`;
+                feed.innerHTML = '<div class="mt-20 text-green-900">No Content Shared Yet.</div>';
                 return;
             }
 
             Object.keys(data).reverse().forEach(id => {
                 const item = data[id];
-                
-                feed.innerHTML += `
-                    <div class="v-card-glass">
-                        <video loop playsinline src="${item.url}" controls></video>
-                        <div class="action-grid">
-                            <div class="action-item" onclick="handleLike('${id}')">
-                                <i class="fas fa-heart text-red-500"></i><span>${item.likes || 0}</span>
-                            </div>
-                            <div class="action-item" onclick="openAd(); window.open('${item.url}', '_blank')">
-                                <i class="fas fa-download text-emerald-500"></i><span>SAVE</span>
-                            </div>
-                            <div class="action-item" onclick="openAd()">
-                                <i class="fas fa-comment-dots text-blue-400"></i><span>CHAT</span>
-                            </div>
-                            <div class="action-item" onclick="openAd()">
-                                <i class="fas fa-share-nodes text-orange-400"></i><span>SHARE</span>
-                            </div>
-                        </div>
+                const card = document.createElement('div');
+                card.className = 'v-card';
+                card.innerHTML = `
+                    <video loop playsinline src="${item.url}" controls></video>
+                    <div class="action-bar">
+                        <div class="act-btn" onclick="handleLike('${id}')"><i class="fas fa-heart text-red-500"></i><span>${item.likes || 0}</span></div>
+                        <div class="act-btn" onclick="triggerAd(); window.open('${item.url}', '_blank')"><i class="fas fa-download text-green-500"></i><span>SAVE</span></div>
+                        <div class="act-btn" onclick="triggerAd()"><i class="fas fa-share-alt text-blue-400"></i><span>SHARE</span></div>
+                        <div class="act-btn" onclick="triggerAd()"><i class="fas fa-crown text-yellow-500"></i><span>PRO</span></div>
+                    </div>
+                    <div class="comment-section">
+                        <div class="comment-list" id="comm-list-${id}"></div>
+                        <input type="text" class="comment-input" placeholder="اكتب تعليقك هنا..." onkeydown="if(event.key==='Enter') addComment('${id}', this.value); if(event.key==='Enter') this.value=''">
                     </div>`;
+                feed.appendChild(card);
+                loadComments(id);
 
-                vault.innerHTML += `
-                    <div class="bg-white/5 p-4 rounded-3xl border border-white/10">
-                        <video src="${item.url}" class="h-32 w-full object-cover rounded-2xl mb-4"></video>
-                        <button onclick="confirmDelete('${id}')" class="w-full py-3 bg-red-600/10 text-red-500 rounded-xl font-bold hover:bg-red-600 hover:text-white transition">REMOVE</button>
+                adminList.innerHTML += `
+                    <div class="p-4 bg-gray-900 rounded-xl">
+                        <video src="${item.url}" class="w-full h-24 object-cover mb-2"></video>
+                        <button onclick="deletePost('${id}')" class="w-full py-2 bg-red-600 rounded text-xs">حذف الفيديو</button>
                     </div>`;
             });
         });
 
-        function handleLike(id) {
-            openAd();
-            db.ref(`emerald_archive/${id}/likes`).transaction(l => (l || 0) + 1);
+        function addComment(postId, text) {
+            if(!text.trim()) return;
+            triggerAd();
+            db.ref(`xraws_public/${postId}/comments`).push({ text: text, time: Date.now() });
         }
 
-        let hold;
-        const trigger = document.getElementById('vault-trigger');
-        trigger.onmousedown = () => hold = setTimeout(() => document.getElementById('admin-vault').style.display = 'block', 3000);
-        trigger.onmouseup = () => clearTimeout(hold);
-        trigger.ontouchstart = () => hold = setTimeout(() => document.getElementById('admin-vault').style.display = 'block', 3000);
-        trigger.ontouchend = () => clearTimeout(hold);
+        function loadComments(postId) {
+            db.ref(`xraws_public/${postId}/comments`).on('value', (snap) => {
+                const list = document.getElementById(`comm-list-${postId}`);
+                const data = snap.val();
+                list.innerHTML = '';
+                if(data) {
+                    Object.values(data).forEach(c => {
+                        list.innerHTML += `<div class="comment-item">${c.text}</div>`;
+                    });
+                }
+            });
+        }
 
-        function closeVault() { document.getElementById('admin-vault').style.display = 'none'; }
-        function confirmDelete(id) { if(confirm('حذف نهائي؟')) db.ref(`emerald_archive/${id}`).remove(); }
+        function handleLike(id) { triggerAd(); db.ref(`xraws_public/${id}/likes`).transaction(l => (l || 0) + 1); }
+
+        let timer;
+        const trigger = document.getElementById('admin-trigger');
+        trigger.onmousedown = () => timer = setTimeout(() => document.getElementById('admin-panel').style.display = 'block', 3000);
+        trigger.onmouseup = () => clearTimeout(timer);
+        trigger.ontouchstart = () => timer = setTimeout(() => document.getElementById('admin-panel').style.display = 'block', 3000);
+        trigger.ontouchend = () => clearTimeout(timer);
+        function closeAdmin() { document.getElementById('admin-panel').style.display = 'none'; }
+        function deletePost(id) { if(confirm('حذف؟')) db.ref(`xraws_public/${id}`).remove(); }
     </script>
 </body>
 </html>
